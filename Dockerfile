@@ -17,7 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # 3) Instalar el custom node (tu repo)
 RUN mkdir -p /app/ComfyUI/custom_nodes \
- && git clone https://github.com/neuronlabpro-coder/ComfyUI_PromptManager /app/ComfyUI/custom_nodes/ComfyUI_PromptManager \
+ && rm -rf /app/ComfyUI/custom_nodes/ComfyUI_PromptManager \
+ && git clone --depth=1 https://github.com/ComfyAssets/ComfyUI_PromptManager /app/ComfyUI/custom_nodes/ComfyUI_PromptManager \
  && pip install --no-cache-dir -r /app/ComfyUI/custom_nodes/ComfyUI_PromptManager/requirements.txt
 
 # Puerto por defecto de ComfyUI
